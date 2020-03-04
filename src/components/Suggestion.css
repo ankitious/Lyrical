@@ -1,0 +1,100 @@
+.suggestion {
+    display: flex;
+    cursor: pointer;
+    margin: 32px;
+}
+
+.result {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    color: #aaa;
+}
+
+.result:hover .cover {
+    transform: translateY(-16px);
+    transition: transform 400ms;
+    box-shadow: 0 8px 32px -16px rgba(0, 0, 0.2)
+}
+
+.background-image {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 250px;
+    min-width: 250px;
+    filter: blur(16px);
+    z-index: 0;
+    transform: translateY(8px);
+}
+
+.flex {
+    display: flex;
+    cursor: pointer;
+    margin: 32px;
+}
+
+.cover {
+    object-fit: cover;
+    box-shadow: 0 0 16px -2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 32px;
+    background-color: #aaa;
+    min-height: 250px;
+    min-width: 250px;
+    z-index: 1;
+}
+.title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 22px;
+    color: var(--fg-color);
+}
+.artist { 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar { width: 8px; }
+
+::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b3dced;
+  background: -moz-linear-gradient(left, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #b3dced), color-stop(50%, #29b8e5), color-stop(100%, #bce0ee));
+  background: -webkit-linear-gradient(left, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -o-linear-gradient(left, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  background: -ms-linear-gradient(left, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  background: linear-gradient(to right, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  border-radius: 5px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1);
+}
+
+div::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  
+    -webkit-appearance: none;
+  }
+  
+  div::-webkit-scrollbar-thumb {
+    background-color: rgba(50, 50, 50, 0.2);
+    border: 2px solid #fff;
+    border-radius: 8px;
+  }
+  
+  div::-webkit-scrollbar-track {
+      display: none
+  }

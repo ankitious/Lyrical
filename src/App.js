@@ -1,24 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {useState} from 'react';
 import './App.css';
+import Search from './components/Search';
+import Suggestion from './components/Suggestion';
+import { suggest } from './api/suggest';
+import { lyrics } from './api/lyrics';
+import Lyrics from './components/Lyrics';
 
 function App() {
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedSong, setSelectedSong] = useState({});
+  
+  function getSuggestions(term) {
+    suggest(term)
+    .then(res => res.json())
+    .then(res => setSuggestions(res.data));
+  }
+  
+  function getLyrics(artist, title, cover) {
+    setSelectedSong({});
+    setSuggestions([]);
+    lyrics(artist,title).then(res => res.json())
+    .then(res => { 
+      if(!res.error) {
+         setSelectedSong({ artist , title, cover, lyrics : res.lyrics}) 
+        }
+      else {
+        setSelectedSong({ error : 'Not Found'})
+      }
+     })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Search getSuggestions={getSuggestions}/>
+      <div className="suggestions">
+        <div className="results">
+            { 
+              suggestions.map(s => <Suggestion key={s.id} {...s} getLyrics={getLyrics}/>)
+            }
+        </div>
+       </div>
+       
+       <div className="lyrics">
+         { Object.keys(selectedSong).length > 0 && <Lyrics {...selectedSong}/>}
+       </div>
+       
+       <footer className="footer">
+          <div className="title-name">
+            <a href="https://www.github.com">Lyrical</a></div>
+          <div>
+            <a href="https://www.github.com">GitHub</a>
+          </div>
+       </footer>
+       
     </div>
   );
 }

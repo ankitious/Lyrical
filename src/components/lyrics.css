@@ -1,0 +1,15 @@
+.lyrics {
+    
+}
+.cover-large {
+    object-fit: contain;
+    background-color: var(--bg-color);
+}
+
+.lyrics-title {
+    color: var(--fg-color);
+}
+
+.lyrics-container {
+    line-height: 1.2rem;
+}
