@@ -46,7 +46,7 @@ function App() {
        
        <footer className="footer">
           <div className="title-name">
-            <a href="https://lyrical-jcr8zu7yn.now.sh">Lyrical</a></div>
+            <a href="https://ankitious.github.io/Lyrical">Lyrical</a></div>
           <div>
             <a href="https://github.com/ankitious/Lyrical">GitHub</a>
           </div>
